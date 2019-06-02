@@ -1,0 +1,71 @@
+# Observations from Credit Behaviour (PAY_1)
+1. For those who are using Revolving Credit(0 - minimum amt) or not consuming(-2) or Paid in full(-1) have very less chances of being defaulters(1)
+2. When the payment is delayed more than 1 month chance of being defaulter increases drastically.
+
+# Incomplete Description
+1. There are some contradicting data in the dataset. It could be error when building up the data, or incomplete definition and explanation. Althought there is additional information in discussion, still couldn't explain all.s
+2. One of the contradicting information is those who Paid in Full in recent month, turn out to be default. Shown in chart above.
+3. Some client paid more than they should be, resulting a Negative Bill Amount. But still end up being default. Refer table below.
+4. Some client Bill Amount is much higher than their Credit Limit provided, which seldom happen in real case. Refer 2nd table below.
+
+More description is needed from the datasest originator, to explain some of these contradicting data.
+
+# model - confusion matrix
+# CONFUSION MATRIX - naiveBayes - classifier.nb
+> confusionMatrix(our.predict.nb, tsd$DEFAULT)
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1
+         0 3571  554
+         1 1101  773
+                                          
+               Accuracy : 0.7241          
+                 95% CI : (0.7126, 0.7354)
+    No Information Rate : 0.7788          
+    P-Value [Acc > NIR] : 1               
+                                          
+                  Kappa : 0.3023          
+                                          
+ Mcnemar's Test P-Value : <2e-16          
+                                          
+            Sensitivity : 0.7643          
+            Specificity : 0.5825          
+         Pos Pred Value : 0.8657          
+         Neg Pred Value : 0.4125          
+             Prevalence : 0.7788          
+         Detection Rate : 0.5953          
+   Detection Prevalence : 0.6876          
+      Balanced Accuracy : 0.6734          
+                                          
+       'Positive' Class : 0 
+       
+# CONFUSION MATRIX - RANDOM FOREST(10) - classifier.rf
+> confusionMatrix(our.predict.rf, tsd$DEFAULT)
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1
+         0 4362  869
+         1  310  458
+                                          
+               Accuracy : 0.8035          
+                 95% CI : (0.7932, 0.8135)
+    No Information Rate : 0.7788          
+    P-Value [Acc > NIR] : 1.662e-06       
+                                          
+                  Kappa : 0.3283          
+                                          
+ Mcnemar's Test P-Value : < 2.2e-16       
+                                          
+            Sensitivity : 0.9336          
+            Specificity : 0.3451          
+         Pos Pred Value : 0.8339          
+         Neg Pred Value : 0.5964          
+             Prevalence : 0.7788          
+         Detection Rate : 0.7271          
+   Detection Prevalence : 0.8720          
+      Balanced Accuracy : 0.6394          
+                                          
+       'Positive' Class : 0               
+                            
