@@ -27,7 +27,7 @@ ggplot(data = our.data, mapping = aes(x = GENDER, fill = DEFAULT)) +
   stat_count(aes(label = ..count..), geom = "label")
 
 # Education
-# Bar Graph for gender
+# Bar Graph for Education
 ggplot(data = our.data, mapping = aes(x = EDUCATION, fill = DEFAULT)) +
   geom_bar() +
   ggtitle("EDUCATION") +
