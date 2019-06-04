@@ -1,5 +1,6 @@
 # installing packages
-
+install.packages("plyr")
+inst
 
 # load packages
 library(plyr)
